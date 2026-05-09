@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEDFACE | Cirugía Maxilofacial & Especialidades — Honduras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF8F5;--white:#fff;
+  --bronze:#B8906E;--bronze-dark:#8B6A4F;--bronze-light:rgba(184,144,110,.13);
+  --dark:#1C1C1E;--dark2:#3A3A3C;
+  --text:#2D2D2D;--textl:#6B6B6B;
+  --border:rgba(184,144,110,.22);
+  --shadow:0 4px 24px rgba(28,28,30,.08);
+  --shadow-lg:0 12px 48px rgba(28,28,30,.13);
+  --r:16px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--bronze);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+nav.scrolled{background:rgba(250,248,245,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{height:38px;width:38px;object-fit:contain;border-radius:50%}
+.nav-logo span{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--dark);letter-spacing:.05em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--dark);font-size:.83rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--bronze)}
+.nav-cta{background:var(--dark);color:var(--white)!important;padding:.45rem 1.2rem;border-radius:100px;transition:background .2s!important}
+.nav-cta:hover{background:var(--bronze)!important}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 5% 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-150px;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(184,144,110,.09) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(184,144,110,.06) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1100px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+
+/* IG CARD */
+.ig-card{background:var(--white);border-radius:24px;padding:26px;box-shadow:var(--shadow-lg);border:1px solid var(--border);position:relative;overflow:hidden}
+.ig-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bronze),#d4a574,var(--bronze))}
+.ig-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.ig-avatar{position:relative;flex-shrink:0}
+.ig-avatar img{width:78px;height:78px;border-radius:50%;object-fit:cover;border:3px solid var(--white);display:block;position:relative;z-index:1}
+.ig-avatar-ring{position:absolute;inset:-4px;border-radius:50%;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);animation:spin 4s linear infinite;z-index:0}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.ig-info{flex:1}
+.ig-name{display:flex;align-items:center;gap:6px;font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--dark);margin-bottom:2px}
+.vbadge{width:17px;height:17px;background:linear-gradient(135deg,#1877f2,#0a66c2);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(24,119,242,.4)}
+.vbadge svg{width:9px;height:9px;fill:white}
+.ig-handle{font-size:.78rem;color:var(--bronze);margin-bottom:3px}
+.ig-handle a{color:inherit;text-decoration:none}
+.ig-cat{font-size:.73rem;color:var(--textl)}
+.ig-stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--cream);border-radius:11px;padding:11px;margin-bottom:14px}
+.ig-stat{text-align:center}
+.ig-stat-n{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--dark);display:block}
+.ig-stat-l{font-size:.68rem;color:var(--textl);text-transform:uppercase;letter-spacing:.04em}
+.ig-bio{font-size:.81rem;color:var(--text);line-height:1.5;margin-bottom:14px}
+.ig-actions{display:flex;gap:7px;margin-bottom:14px}
+.ig-btn{flex:1;padding:8px 10px;border-radius:8px;font-size:.76rem;font-weight:600;text-align:center;cursor:pointer;border:none;transition:all .2s;text-decoration:none;display:block}
+.ig-btn-p{background:var(--dark);color:var(--white)}
+.ig-btn-p:hover{background:var(--bronze)}
+.ig-btn-s{background:var(--cream);color:var(--dark);border:1px solid var(--border)}
+.ig-btn-s:hover{background:var(--bronze-light)}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:10px;overflow:hidden}
+.ig-grid-item{aspect-ratio:1;overflow:hidden}
+.ig-grid-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.ig-grid-item:hover img{transform:scale(1.06)}
+
+/* HERO TEXT */
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--bronze-light);color:var(--bronze-dark);padding:6px 14px;border-radius:100px;font-size:.73rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:300;color:var(--dark);line-height:1.1;margin-bottom:22px}
+.hero-title em{font-style:italic;color:var(--bronze)}
+.hero-desc{font-size:.97rem;color:var(--textl);line-height:1.75;margin-bottom:28px;max-width:430px}
+.hero-community{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:28px}
+.comm-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--dark);line-height:1}
+.comm-label{font-size:.78rem;color:var(--textl);margin-top:4px}
+.hero-cta{display:flex;gap:11px;flex-wrap:wrap}
+.btn-p{background:var(--dark);color:var(--white);padding:13px 26px;border-radius:100px;text-decoration:none;font-size:.88rem;font-weight:500;transition:all .25s;display:inline-flex;align-items:center;gap:7px}
+.btn-p:hover{background:var(--bronze);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,144,110,.3)}
+.btn-s{background:transparent;color:var(--dark);padding:13px 26px;border-radius:100px;text-decoration:none;font-size:.88rem;font-weight:500;border:1.5px solid var(--dark);transition:all .25s;display:inline-flex;align-items:center;gap:7px}
+.btn-s:hover{border-color:var(--bronze);color:var(--bronze);transform:translateY(-2px)}
+
+/* SECTIONS */
+section{padding:96px 5%}
+.inner{max-width:1100px;margin:0 auto}
+.stag{display:inline-block;color:var(--bronze);font-size:.73rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:300;color:var(--dark);line-height:1.15;margin-bottom:14px}
+.stitle em{font-style:italic;color:var(--bronze)}
+.ssub{font-size:.97rem;color:var(--textl);max-width:520px;line-height:1.75}
+
+/* ABOUT */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:200px 200px;gap:11px}
+.about-photo{border-radius:14px;overflow:hidden}
+.about-photo:first-child{grid-row:span 2}
+.about-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.about-photo:hover img{transform:scale(1.04)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tag{background:var(--bronze-light);color:var(--bronze-dark);padding:5px 13px;border-radius:100px;font-size:.78rem;font-weight:500}
+
+/* SERVICES */
+.services{background:var(--cream)}
+.svc-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:18px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc-card{background:var(--white);border-radius:var(--r);padding:30px 26px;border:1px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bronze),#d4a574);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-icon{width:50px;height:50px;background:var(--bronze-light);border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.4rem}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--dark);margin-bottom:9px}
+.svc-desc{font-size:.83rem;color:var(--textl);line-height:1.65}
+
+/* GALLERY */
+.gallery{background:var(--dark);color:var(--white)}
+.gallery .stitle{color:var(--white)}
+.gallery .ssub{color:rgba(255,255,255,.45)}
+.gal-head{text-align:center;margin-bottom:52px}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gal-item{border-radius:11px;overflow:hidden;position:relative;cursor:pointer}
+.gal-item:nth-child(1),.gal-item:nth-child(5){grid-column:span 2}
+.gal-item img{width:100%;height:270px;object-fit:cover;transition:transform .4s;display:block}
+.gal-item:nth-child(1) img,.gal-item:nth-child(5) img{height:310px}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,28,30,.65) 0%,transparent 50%);opacity:0;transition:opacity .3s}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-link{display:flex;align-items:center;justify-content:center;margin-top:44px}
+.gal-link a{color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px;font-size:.88rem;border:1px solid rgba(255,255,255,.18);padding:11px 22px;border-radius:100px;transition:all .25s}
+.gal-link a:hover{background:rgba(255,255,255,.08);border-color:var(--bronze);color:var(--bronze)}
+
+/* STATS */
+.stats-sec{background:var(--white)}
+.stats-head{text-align:center;margin-bottom:52px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.stat-item{text-align:center;padding:30px 18px;background:var(--cream);border-radius:var(--r);border:1px solid var(--border)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--bronze);display:block;line-height:1;margin-bottom:7px}
+.stat-lbl{font-size:.77rem;color:var(--textl);letter-spacing:.07em;text-transform:uppercase}
+
+/* CONTACT */
+.contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:start}
+.c-item{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.c-icon{width:42px;height:42px;background:var(--bronze-light);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
+.c-lbl{font-size:.73rem;color:var(--textl);text-transform:uppercase;letter-spacing:.07em}
+.c-val{font-size:.93rem;color:var(--dark);font-weight:500}
+.socials{display:flex;gap:11px;margin-top:28px}
+.soc{width:42px;height:42px;background:var(--dark);color:var(--white);border-radius:11px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.05rem;transition:all .25s}
+.soc:hover{background:var(--bronze);transform:translateY(-3px)}
+.fgroup{margin-bottom:18px}
+.fgroup label{display:block;font-size:.77rem;font-weight:500;color:var(--text);margin-bottom:7px;text-transform:uppercase;letter-spacing:.07em}
+.fgroup input,.fgroup textarea,.fgroup select{width:100%;padding:13px 15px;border:1.5px solid var(--border);border-radius:11px;font-family:'Inter',sans-serif;font-size:.88rem;color:var(--text);background:var(--white);transition:border-color .2s;outline:none}
+.fgroup input:focus,.fgroup textarea:focus,.fgroup select:focus{border-color:var(--bronze)}
+.fgroup textarea{min-height:115px;resize:vertical}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fsub{background:var(--dark);color:var(--white);padding:13px 30px;border-radius:100px;font-size:.88rem;font-weight:500;border:none;cursor:pointer;transition:all .25s;width:100%;font-family:'Inter',sans-serif}
+.fsub:hover{background:var(--bronze);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,144,110,.3)}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.55);padding:44px 5%}
+.foot-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot-logo{display:flex;align-items:center;gap:9px}
+.foot-logo img{height:34px;width:34px;object-fit:contain;border-radius:50%;opacity:.7;filter:brightness(1.2)}
+.foot-logo span{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:rgba(255,255,255,.65)}
+.foot-copy{font-size:.78rem}
+.foot-links{display:flex;gap:18px}
+.foot-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.78rem;transition:color .2s}
+.foot-links a:hover{color:var(--bronze)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:52px;max-width:560px}
+  .about-grid{grid-template-columns:1fr}
+  .about-photos{grid-template-rows:200px}
+  .about-photo:first-child{grid-row:span 1}
+  .contact-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  nav{padding:0 4%}
+  .nav-links{display:none}
+  section{padding:68px 4%}
+  .hero{padding:88px 4% 68px}
+  .svc-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .frow{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .gal-grid{grid-template-columns:1fr}
+  .gal-item:nth-child(1),.gal-item:nth-child(5){grid-column:span 1}
+  .hero-title{font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="file:///C:/Users/alswe/Desktop/10 SKILLS ADRI Y JUANPE/kit-instagram-web/assets/instagram/imagenes/logo.jpg" alt="MEDFACE">
+    <span>MEDFACE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto" class="nav-cta">Reservar cita</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+
+    <!-- Instagram Card -->
+    <div class="ig-card reveal">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <div class="ig-avatar-ring"></div>
+          <img src="file:///C:/Users/alswe/Desktop/10 SKILLS ADRI Y JUANPE/kit-instagram-web/assets/instagram/imagenes/logo.jpg" alt="MEDFACE">
+        </div>
+        <div class="ig-info">
+          <div class="ig-name">
+            Dra. Luisa Pérez
+            <span class="vbadge"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+          </div>
+          <div class="ig-handle"><a href="https://www.instagram.com/medfacehn/" target="_blank">@medfacehn · MEDFACE</a></div>
+          <div class="ig-cat">Cirugía Maxilofacial · Honduras 🇭🇳</div>
+        </div>
+      </div>
+      <div class="ig-stats">
+        <div class="ig-stat">
+          <span class="ig-stat-n">119</span>
+          <span class="ig-stat-l">Posts</span>
+        </div>
+        <div class="ig-stat">
+          <span class="ig-stat-n">1.890</span>
+          <span class="ig-stat-l">Seguidores</span>
+        </div>
+        <div class="ig-stat">
+          <span class="ig-stat-n">+10</span>
+          <span class="ig-stat-l">Servicios</span>
+        </div>
+      </div>
+      <div class="ig-bio">Clínica integral especializada en cirugía maxilofacial y Odontología 🦷✨</div>
+      <div class="ig-actions">
+        <a href="#contacto" class="ig-btn ig-btn-p">Contactar</a>
+        <a href="#servicios" class="ig-btn ig-btn-s">Servicios</a>
+        <a href="https://www.instagram.com/medfacehn/" target="_blank" class="ig-btn ig-btn-s">Seguir</a>
+      </div>
+      <div class="ig-grid">
+        <div class="ig-grid-item"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/686531334_18595914868007540_139753695954285765_n.jpg" alt="" loading="lazy"></div>
+        <div class="ig-grid-item"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/684253130_1486257213036928_2452272090972091426_n.jpg" alt="" loading="lazy"></div>
+        <div class="ig-grid-item"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/682679360_3915022795461052_1303258786591177672_n.jpg" alt="" loading="lazy"></div>
+        <div class="ig-grid-item"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/671144998_17922272802338187_426598261158365630_n.jpg" alt="" loading="lazy"></div>
+        <div class="ig-grid-item"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/670615247_17921452680338187_136932429184575686_n.jpg" alt="" loading="lazy"></div>
+        <div class="ig-grid-item"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/670476732_17921305224338187_1619418280531293802_n.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+
+    <!-- Hero text -->
+    <div class="hero-text">
+      <span class="hero-badge reveal d1">✦ Cirugía Maxilofacial · Honduras</span>
+      <h1 class="hero-title reveal d2">Dra. Luisa Pérez<br><em>Cirugía Maxilofacial</em><br>& Especialidades</h1>
+      <p class="hero-desc reveal d3">Especialista en cirugía maxilofacial, odontología y medicina estética en Honduras. Transformando vidas con los más altos estándares de calidad y calidez humana.</p>
+      <div class="hero-community reveal d4">
+        <div class="comm-num">+1.890</div>
+        <div class="comm-label">pacientes y seguidores confían en MEDFACE</div>
+      </div>
+      <div class="hero-cta reveal d5">
+        <a href="#contacto" class="btn-p">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Reservar cita
+        </a>
+        <a href="#servicios" class="btn-s">Ver servicios</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-photos reveal">
+        <div class="about-photo"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/682679360_3915022795461052_1303258786591177672_n.jpg" alt="Clínica MEDFACE"></div>
+        <div class="about-photo"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/684253130_1486257213036928_2452272090972091426_n.jpg" alt="Equipo"></div>
+        <div class="about-photo"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/658220698_17919091545338187_7347880231481565639_n.jpg" alt="Procedimiento"></div>
+      </div>
+      <div class="reveal d2">
+        <span class="stag">Sobre nosotros</span>
+        <h2 class="stitle">La Dra. Luisa Pérez<br>a tu <em>servicio</em></h2>
+        <p style="color:var(--textl);line-height:1.8;margin-bottom:16px">La Dra. Luisa Pérez es especialista en cirugía maxilofacial y lidera MEDFACE, una clínica integral en Honduras que combina excelencia médica con tecnología de vanguardia y trato personalizado.</p>
+        <p style="color:var(--textl);line-height:1.8">Desde cirugías faciales hasta tratamientos estéticos y odontológicos, la Dra. Pérez y su equipo están comprometidos con tu salud, confianza y bienestar.</p>
+        <div class="tags">
+          <span class="tag">Cirugía Maxilofacial</span>
+          <span class="tag">Odontología</span>
+          <span class="tag">Blefaroplastia</span>
+          <span class="tag">Botox</span>
+          <span class="tag">Implantes</span>
+          <span class="tag">Extracciones</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="inner">
+    <div class="svc-header">
+      <div>
+        <span class="stag">Lo que ofrecemos</span>
+        <h2 class="stitle">Nuestros <em>servicios</em></h2>
+      </div>
+      <p class="ssub">Procedimientos especializados con los más altos estándares médicos y estéticos.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">🦴</div>
+        <div class="svc-name">Cirugía Maxilofacial</div>
+        <p class="svc-desc">Cirugía especializada de mandíbula, maxilar y estructuras faciales. Corrección de mordidas, deformidades y traumatismos faciales con precisión.</p>
+      </div>
+      <div class="svc-card reveal d1">
+        <div class="svc-icon">👁️</div>
+        <div class="svc-name">Blefaroplastia</div>
+        <p class="svc-desc">Cirugía de párpados para rejuvenecer la mirada, eliminar el exceso de piel y bolsas bajo los ojos. Resultados naturales y duraderos.</p>
+      </div>
+      <div class="svc-card reveal d2">
+        <div class="svc-icon">💉</div>
+        <div class="svc-name">Botox & Medicina Estética</div>
+        <p class="svc-desc">Tratamientos de medicina estética facial: botox, rellenos dérmicos y procedimientos no invasivos para lucir radiante.</p>
+      </div>
+      <div class="svc-card reveal d3">
+        <div class="svc-icon">🦷</div>
+        <div class="svc-name">Implantes Dentales</div>
+        <p class="svc-desc">Recupera tu sonrisa con implantes dentales de titanio de alta calidad. Solución permanente y estética para dientes perdidos.</p>
+      </div>
+      <div class="svc-card reveal d4">
+        <div class="svc-icon">😁</div>
+        <div class="svc-name">Odontología Integral</div>
+        <p class="svc-desc">Limpieza dental, endodoncia, ortodoncia y restauraciones. Cuidado completo de tu salud bucal con profesionales certificados.</p>
+      </div>
+      <div class="svc-card reveal d5">
+        <div class="svc-icon">🔬</div>
+        <div class="svc-name">Extracciones & Cirugía Oral</div>
+        <p class="svc-desc">Extracciones simples y de muelas del juicio, cirugía periapical y procedimientos orales bajo los más altos protocolos de seguridad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+  <div class="inner">
+    <div class="gal-head">
+      <span class="stag">@medfacehn · Instagram</span>
+      <h2 class="stitle">Nuestro <em>trabajo</em></h2>
+      <p class="ssub" style="margin:0 auto">Casos reales, resultados reales. Cada procedimiento refleja nuestro compromiso con la excelencia.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/686531334_18595914868007540_139753695954285765_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+      <div class="gal-item reveal d1"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/684253130_1486257213036928_2452272090972091426_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+      <div class="gal-item reveal d2"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/682679360_3915022795461052_1303258786591177672_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+      <div class="gal-item reveal d1"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/671144998_17922272802338187_426598261158365630_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+      <div class="gal-item reveal d2"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/670615247_17921452680338187_136932429184575686_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+      <div class="gal-item reveal d3"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/670476732_17921305224338187_1619418280531293802_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+      <div class="gal-item reveal d1"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/670251569_17920537590338187_933048572690190118_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+      <div class="gal-item reveal d2"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/660902522_17920003914338187_5825713829973828395_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+      <div class="gal-item reveal d3"><img src="file:///C:/Users/alswe/Desktop/Medface/Instagram_files/660405013_17919585603338187_3947878809046562938_n.jpg" alt="MEDFACE"><div class="gal-overlay"></div></div>
+    </div>
+    <div class="gal-link">
+      <a href="https://www.instagram.com/medfacehn/" target="_blank">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Ver todos los posts en Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-sec">
+  <div class="inner">
+    <div class="stats-head">
+      <span class="stag">En números</span>
+      <h2 class="stitle">MEDFACE <em>en cifras</em></h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-num counter" data-target="1890">0</span>
+        <span class="stat-lbl">Seguidores en Instagram</span>
+      </div>
+      <div class="stat-item reveal d1">
+        <span class="stat-num counter" data-target="119">0</span>
+        <span class="stat-lbl">Publicaciones</span>
+      </div>
+      <div class="stat-item reveal d2">
+        <span class="stat-num">+10</span>
+        <span class="stat-lbl">Especialidades médicas</span>
+      </div>
+      <div class="stat-item reveal d3">
+        <span class="stat-num" style="font-size:2rem">🇭🇳</span>
+        <span class="stat-lbl">Orgullo hondureño</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="inner">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="stag">Contáctanos</span>
+        <h2 class="stitle">Agenda tu <em>cita</em></h2>
+        <p style="color:var(--textl);line-height:1.8;margin-bottom:28px">Estamos aquí para ayudarte. Escríbenos y uno de nuestros especialistas te atenderá a la brevedad posible.</p>
+        <div class="c-item">
+          <div class="c-icon">🦷</div>
+          <div><div class="c-lbl">Agendar citas</div><div class="c-val">+504 8995-1277</div></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">😁</div>
+          <div><div class="c-lbl">Odontología general</div><div class="c-val">+504 8808-4501</div></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📍</div>
+          <div><div class="c-lbl">Ubicación</div><div class="c-val">Honduras</div></div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:8px;flex-wrap:wrap">
+          <a href="https://wa.me/50489951277?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20MEDFACE" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:12px 20px;border-radius:100px;text-decoration:none;font-size:.85rem;font-weight:600;transition:all .25s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(37,211,102,.35)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar cita
+          </a>
+          <a href="https://wa.me/50488084501?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20odontolog%C3%ADa%20en%20MEDFACE" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:12px 20px;border-radius:100px;text-decoration:none;font-size:.85rem;font-weight:600;transition:all .25s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(37,211,102,.35)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Odontología general
+          </a>
+        </div>
+        <div class="socials">
+          <a href="https://www.instagram.com/medfacehn/" target="_blank" class="soc" title="Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@medfacehn" target="_blank" class="soc" title="TikTok">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.52V6.76a4.85 4.85 0 01-1.02-.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <form onsubmit="handleSubmit(event)">
+          <div class="frow">
+            <div class="fgroup"><label>Nombre</label><input type="text" placeholder="Tu nombre completo"></div>
+            <div class="fgroup"><label>Teléfono</label><input type="tel" placeholder="+504 0000-0000"></div>
+          </div>
+          <div class="fgroup">
+            <label>Servicio de interés</label>
+            <select>
+              <option value="">Selecciona un servicio</option>
+              <option>Cirugía Maxilofacial</option>
+              <option>Blefaroplastia</option>
+              <option>Botox & Medicina Estética</option>
+              <option>Implantes Dentales</option>
+              <option>Odontología Integral</option>
+              <option>Extracciones & Cirugía Oral</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="fgroup"><label>Mensaje</label><textarea placeholder="Cuéntanos en qué podemos ayudarte..."></textarea></div>
+          <button type="submit" class="fsub" style="background:#25D366">
+            Enviar por WhatsApp →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-logo">
+      <img src="file:///C:/Users/alswe/Desktop/10 SKILLS ADRI Y JUANPE/kit-instagram-web/assets/instagram/imagenes/logo.jpg" alt="MEDFACE">
+      <span>MEDFACE</span>
+    </div>
+    <p class="foot-copy">© 2026 MEDFACE | Cirugía Maxilofacial & Especialidades. Honduras.</p>
+    <div class="foot-links">
+      <a href="https://www.instagram.com/medfacehn/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@medfacehn" target="_blank">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+// Reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Counters
+function countUp(el) {
+  const target = +el.dataset.target;
+  const step = target / 120;
+  let n = 0;
+  const t = setInterval(() => {
+    n = Math.min(n + step, target);
+    el.textContent = Math.floor(n).toLocaleString('es');
+    if (n >= target) clearInterval(t);
+  }, 16);
+}
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); cObs.unobserve(e.target); } });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
+
+// Form
+function handleSubmit(e) {
+  e.preventDefault();
+  const f = e.target;
+  const nombre = f.querySelector('input[type=text]').value || 'Cliente';
+  const tel = f.querySelector('input[type=tel]').value || '';
+  const servicio = f.querySelector('select').value || 'consulta general';
+  const mensaje = f.querySelector('textarea').value || '';
+  const texto = encodeURIComponent(`Hola MEDFACE, soy ${nombre}${tel ? ' ('+tel+')' : ''}.\nServicio: ${servicio}.\n${mensaje}`);
+  window.open(`https://wa.me/50489951277?text=${texto}`, '_blank');
+}
+</script>
+</body>
+</html>
